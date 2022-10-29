@@ -1,0 +1,21 @@
+-- line numbering
+vim.o.number = true
+vim.o.relativenumber = true
+
+-- search
+vim.o.ignorecase = true -- Do not require exact cases to match exactly
+vim.o.smartcase = true
+vim.o.hlsearch = false -- Disable highlighting past searches
+
+-- wrap lines
+vim.o.wrap = true
+vim.o.breakindent = true
+
+-- tabs vs. spaces
+local tabstop = 4 -- Tabs take up to four spaces
+vim.o.tabstop = tabstop
+vim.o.shiftwidth = tabstop
+vim.o.softtabstop = tabstop
+vim.o.expandtab = false -- Do not replace tabs with spaces
+vim.o.list = true -- Show tabs, trailing spaces, etc.
+vim.o.listchars = "tab:>-,trail:-,nbsp:+"
