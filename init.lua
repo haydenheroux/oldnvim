@@ -1,7 +1,7 @@
 -- init.lua (modified October 2022)
 -- Hayden Heroux (github.com/haydenheroux)
 -- [x] dracula theme
--- [ ] file navigation
+-- [x] file navigation
 -- [x] status line
 -- [x] git integration
 -- [ ] lsp

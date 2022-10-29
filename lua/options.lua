@@ -19,3 +19,8 @@ vim.o.softtabstop = tabstop
 vim.o.expandtab = false -- Do not replace tabs with spaces
 vim.o.list = true -- Show tabs, trailing spaces, etc.
 vim.o.listchars = "tab:>-,trail:-,nbsp:+"
+
+-- disable netrw
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+vim.o.termguicolors = true

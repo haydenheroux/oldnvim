@@ -24,4 +24,10 @@ return require('packer').startup(function(use)
 		config = require('config.treesitter')
 	}
 
+	use {
+		'nvim-tree/nvim-tree.lua',
+		requires = { 'nvim-tree/nvim-web-devicons', opt = true },
+		config = require('config.nvimtree')
+	}
+
 end)
