@@ -1,6 +1,10 @@
 require('lualine').setup {
 	options = {
-		theme = 'dracula-nvim',
+		theme = 'dracula', -- theme = 'dracula-nvim',
+		icons_enabled = true,
+		-- Comment these lines to show slants
+		component_separators = '',
+		section_separators = '',
 	},
 	sections = {
 		lualine_a = {'mode'},

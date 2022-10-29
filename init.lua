@@ -3,11 +3,11 @@
 -- [x] dracula theme
 -- [ ] file navigation
 -- [x] status line
--- [ ] git integration
+-- [x] git integration
 -- [ ] lsp
 -- [ ] autocompletion
 -- [ ] file searching and previewing
--- [ ] syntax highlighting
+-- [x] syntax highlighting
 
 -- options
 require('options')

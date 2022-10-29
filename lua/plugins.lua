@@ -13,4 +13,15 @@ return require('packer').startup(function(use)
 		config = require('config.lualine')
 	}
 
+	use {
+		'lewis6991/gitsigns.nvim',
+		config = require('config.gitsigns')
+	}
+
+	use {
+		'nvim-treesitter/nvim-treesitter',
+		run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
+		config = require('config.treesitter')
+	}
+
 end)
