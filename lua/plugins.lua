@@ -1,9 +1,13 @@
 vim.cmd[[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
+
+	use {
+		'wbthomason/packer.nvim'
+	}
+
 	use {
 		'Mofiqul/dracula.nvim',
-		-- TODO: Automatically set colorscheme on load
 		config = require('config.dracula')
 	}
 
@@ -43,5 +47,10 @@ return require('packer').startup(function(use)
 	use {
 		'ms-jpq/coq.thirdparty',
 		branch = '3p'
+	}
+
+	use {
+		'neovim/nvim-lspconfig',
+		config = require('config.lspconfig')
 	}
 end)
