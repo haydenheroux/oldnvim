@@ -5,7 +5,7 @@
 -- [x] status line
 -- [x] git integration
 -- [ ] lsp
--- [ ] autocompletion
+-- [x] autocompletion
 -- [ ] file searching and previewing
 -- [x] syntax highlighting
 
