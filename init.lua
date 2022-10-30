@@ -4,9 +4,9 @@
 -- [x] file navigation
 -- [x] status line
 -- [x] git integration
--- [ ] lsp
+-- [x] lsp
 -- [x] autocompletion
--- [ ] file searching and previewing
+-- [x] file searching and previewing
 -- [x] syntax highlighting
 
 -- options
