@@ -29,9 +29,9 @@ return require('packer').startup(function(use)
 	}
 
 	use {
-		'nvim-tree/nvim-tree.lua',
-		requires = { 'nvim-tree/nvim-web-devicons', opt = true },
-		config = require('config.nvimtree')
+		'ms-jpq/chadtree',
+		branch = 'chad',
+		run = 'python3 -m chadtree deps'
 	}
 
 	use {
