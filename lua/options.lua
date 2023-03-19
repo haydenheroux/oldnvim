@@ -24,3 +24,7 @@ vim.o.listchars = "tab:>-,trail:-,nbsp:+"
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.o.termguicolors = true
+
+local opts = { noremap = true, silent = true }
+local keymap = vim.api.nvim_set_keymap
+keymap("n", "<F5>", ":silent !compile %<CR>", opts)
