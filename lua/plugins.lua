@@ -6,32 +6,29 @@ return require('packer').startup(function(use)
 		'wbthomason/packer.nvim'
 	}
 
-	use {
-		'Mofiqul/dracula.nvim',
-		config = require('config.dracula')
-	}
+	use { 'dracula/vim', config = [[require('config.dracula')]] }
 
 	use {
 		'nvim-lualine/lualine.nvim',
 		requires = { 'kyazdani42/nvim-web-devicons', opt = true },
-		config = require('config.lualine')
+		config = [[require('config.lualine')]]
 	}
 
 	use {
 		'lewis6991/gitsigns.nvim',
-		config = require('config.gitsigns')
+		config = [[require('config.gitsigns')]]
 	}
 
 	use {
 		'nvim-treesitter/nvim-treesitter',
 		run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
-		config = require('config.treesitter')
+		config = [[require('config.treesitter')]]
 	}
 
 	use {
 		'ms-jpq/chadtree',
 		branch = 'chad',
-		run = 'python3 -m chadtree deps'
+		run = 'vim.cmd CHADdeps'
 	}
 
 	use {
@@ -51,12 +48,16 @@ return require('packer').startup(function(use)
 
 	use {
 		'neovim/nvim-lspconfig',
-		config = require('config.lspconfig')
+		config = [[require('config.lspconfig')]]
 	}
 
 	use {
 		'nvim-telescope/telescope.nvim', tag = '0.1.0',
 		requires = { {'nvim-lua/plenary.nvim'} },
-		config = require('config.telescope')
+		config = [[require('config.telescope')]]
+	}
+
+	use {
+		'nvim-tree/nvim-tree.lua'
 	}
 end)
