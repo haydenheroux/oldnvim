@@ -10,7 +10,7 @@ lsp.jsonls.setup{}
 -- TOOD: Kotlin
 -- TODO: Install `ltex`
 lsp.ltex.setup{}
-lsp.sumneko_lua.setup{}
+lsp.lua_ls.setup{}
 -- TODO: Markdown?
 lsp.pyright.setup{}
 -- TODO: R?
