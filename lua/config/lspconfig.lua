@@ -1,19 +1,20 @@
 local lsp = require('lspconfig')
-local coq = require('coq')
+-- TODO: Capabilities
+-- local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-lsp.ccls.setup{coq.lsp_ensure_capabilities()}
-lsp.gopls.setup{coq.lsp_ensure_capabilities()}
+lsp.ccls.setup{}
+lsp.gopls.setup{}
 -- TODO: Java
-lsp.tsserver.setup{coq.lsp_ensure_capabilities()}
-lsp.jsonls.setup{coq.lsp_ensure_capabilities()}
+lsp.tsserver.setup{}
+lsp.jsonls.setup{}
 -- TOOD: Kotlin
 -- TODO: Install `ltex`
-lsp.ltex.setup{coq.lsp_ensure_capabilities()}
-lsp.sumneko_lua.setup{coq.lsp_ensure_capabilities()}
+lsp.ltex.setup{}
+lsp.sumneko_lua.setup{}
 -- TODO: Markdown?
-lsp.pyright.setup{coq.lsp_ensure_capabilities()}
+lsp.pyright.setup{}
 -- TODO: R?
-lsp.rust_analyzer.setup{coq.lsp_ensure_capabilities()}
+lsp.rust_analyzer.setup{}
 -- TODO: Install `svelte`
-lsp.svelte.setup{coq.lsp_ensure_capabilities()}
-lsp.hls.setup{coq.lsp_ensure_capabilities()}
+lsp.svelte.setup{}
+lsp.hls.setup{}

@@ -20,31 +20,28 @@ return require('packer').startup(function(use)
 	}
 
 	use {
+		'nvim-tree/nvim-tree.lua',
+		config = [[require('config.nvimtree')]]
+	}
+
+	use {
 		'nvim-treesitter/nvim-treesitter',
 		run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
 		config = [[require('config.treesitter')]]
 	}
 
-	use {
-		'ms-jpq/chadtree',
-		branch = 'chad',
-		run = 'vim.cmd CHADdeps'
-	}
+	use { "onsails/lspkind-nvim", event = "VimEnter" }
+	use { "hrsh7th/nvim-cmp", after = "lspkind-nvim", config = [[require('config.nvimcmp')]] }
 
-	use {
-		'ms-jpq/coq_nvim',
-		branch = 'coq'
-	}
+	use { "SirVer/ultisnips", event = "InsertEnter" }
+	use { "honza/vim-snippets", after = "ultisnips" }
 
-	use {
-		'ms-jpq/coq.artifacts',
-		branch = 'artifacts'
-	}
-
-	use {
-		'ms-jpq/coq.thirdparty',
-		branch = '3p'
-	}
+	-- nvim-cmp completion sources
+	use { "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp" }
+	use { "hrsh7th/cmp-path", after = "nvim-cmp" }
+	use { "hrsh7th/cmp-buffer", after = "nvim-cmp" }
+	use { "hrsh7th/cmp-omni", after = "nvim-cmp" }
+	use { "quangnguyen30192/cmp-nvim-ultisnips", after = { "nvim-cmp", "ultisnips" } }
 
 	use {
 		'neovim/nvim-lspconfig',
@@ -55,11 +52,6 @@ return require('packer').startup(function(use)
 		'nvim-telescope/telescope.nvim', tag = '0.1.0',
 		requires = { {'nvim-lua/plenary.nvim'} },
 		config = [[require('config.telescope')]]
-	}
-
-	use {
-		'nvim-tree/nvim-tree.lua',
-		config = [[require('config.nvimtree')]]
 	}
 
 	use 'mfussenegger/nvim-jdtls'
