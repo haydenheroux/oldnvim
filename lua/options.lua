@@ -28,4 +28,16 @@ vim.o.termguicolors = true
 local opts = { noremap = true, silent = true }
 local keymap = vim.api.nvim_set_keymap
 keymap("n", "<C-t>", ":NvimTreeFocus<CR>", opts)
+
 keymap("n", "<F5>", ":silent !compile %<CR>", opts)
+
+vim.g.mapleader = " "
+-- VSCode compatibility shortcuts
+keymap("n", "<leader>f", [[:lua require'telescope.builtin'.live_grep{}<CR>]], opts)
+keymap("n", "<leader>d", [[:lua require'telescope.builtin'.lsp_definitions{}<CR>]], opts)
+keymap("n", "<leader>i", [[:lua require'telescope.builtin'.lsp_implementations{}<CR>]], opts)
+keymap("n", "<leader>r", [[:lua require'telescope.builtin'.lsp_references{}<CR>]], opts)
+keymap("n", "<leader>.", [[:lua vim.lsp.buf.code_action()<CR>]], opts)
+
+-- TODO Jank
+require('telescope').load_extension("ui-select")

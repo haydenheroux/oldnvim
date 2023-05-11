@@ -6,7 +6,7 @@ return require('packer').startup(function(use)
 		'wbthomason/packer.nvim'
 	}
 
-	use { 'dracula/vim', config = [[require('config.dracula')]] }
+	use { 'Mofiqul/dracula.nvim', config = [[require('config.dracula')]] }
 
 	use {
 		'nvim-lualine/lualine.nvim',
@@ -33,6 +33,7 @@ return require('packer').startup(function(use)
 	use { "onsails/lspkind-nvim", event = "VimEnter" }
 	use { "hrsh7th/nvim-cmp", after = "lspkind-nvim", config = [[require('config.nvimcmp')]] }
 
+	-- TODO Run `python3 -m pip install neovim`
 	use { "SirVer/ultisnips", event = "InsertEnter" }
 	use { "honza/vim-snippets", after = "ultisnips" }
 
@@ -55,4 +56,6 @@ return require('packer').startup(function(use)
 	}
 
 	use 'mfussenegger/nvim-jdtls'
+
+	use {'nvim-telescope/telescope-ui-select.nvim' }
 end)

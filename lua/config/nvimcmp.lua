@@ -1,6 +1,33 @@
 -- Setup nvim-cmp.
 local cmp = require("cmp")
-local lspkind = require("lspkind")
+
+local kind_icons = {
+  Text = "",
+  Method = "",
+  Function = "",
+  Constructor = "",
+  Field = "",
+  Variable = "",
+  Class = "",
+  Interface = "",
+  Module = "",
+  Property = "",
+  Unit = "",
+  Value = "",
+  Enum = "",
+  Keyword = "",
+  Snippet = "",
+  Color = "󰏘",
+  File = "󰈙",
+  Reference = "",
+  Folder = "",
+  EnumMember = "",
+  Constant = "",
+  Struct = "",
+  Event = "",
+  Operator = "",
+  TypeParameter = "",
+}
 
 cmp.setup {
   snippet = {
@@ -26,7 +53,6 @@ cmp.setup {
     end,
     ["<CR>"] = cmp.mapping.confirm { select = true },
     ["<C-e>"] = cmp.mapping.abort(),
-    ["<Esc>"] = cmp.mapping.close(),
     ["<C-d>"] = cmp.mapping.scroll_docs(-4),
     ["<C-f>"] = cmp.mapping.scroll_docs(4),
   },
@@ -45,48 +71,44 @@ cmp.setup {
     entries = "custom",
   },
   formatting = {
-    format = lspkind.cmp_format {
-      mode = "symbol_text",
-      menu = {
-        nvim_lsp = "[LSP]",
-        ultisnips = "[US]",
-        nvim_lua = "[Lua]",
-        path = "[Path]",
+    format = function(entry, vim_item)
+      vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind)
+      vim_item.menu = ({
         buffer = "[Buffer]",
-        emoji = "[Emoji]",
-        omni = "[Omni]",
-      },
-    },
+        nvim_lsp = "[LSP]",
+        luasnip = "[LuaSnip]",
+        nvim_lua = "[Lua]",
+        latex_symbols = "[LaTeX]",
+      })[entry.source.name]
+      return vim_item
+    end
   },
 }
 
-cmp.setup.filetype("tex", {
-  sources = {
-    { name = "omni" },
-    { name = "ultisnips" }, -- For ultisnips user.
-    { name = "buffer", keyword_length = 2 }, -- for buffer word completion
-    { name = "path" }, -- for path completion
-  },
-})
-
---  see https://github.com/hrsh7th/nvim-cmp/wiki/Menu-Appearance#how-to-add-visual-studio-code-dark-theme-colors-to-the-menu
 vim.cmd([[
-  highlight! link CmpItemMenu Comment
-  " gray
-  highlight! CmpItemAbbrDeprecated guibg=NONE gui=strikethrough guifg=#808080
-  " blue
-  highlight! CmpItemAbbrMatch guibg=NONE guifg=#569CD6
-  highlight! CmpItemAbbrMatchFuzzy guibg=NONE guifg=#569CD6
-  " light blue
-  highlight! CmpItemKindVariable guibg=NONE guifg=#9CDCFE
-  highlight! CmpItemKindInterface guibg=NONE guifg=#9CDCFE
-  highlight! CmpItemKindText guibg=NONE guifg=#9CDCFE
-  " pink
-  highlight! CmpItemKindFunction guibg=NONE guifg=#C586C0
-  highlight! CmpItemKindMethod guibg=NONE guifg=#C586C0
-  " front
-  highlight! CmpItemKindKeyword guibg=NONE guifg=#D4D4D4
-  highlight! CmpItemKindProperty guibg=NONE guifg=#D4D4D4
-  highlight! CmpItemKindUnit guibg=NONE guifg=#D4D4D4
+	" text
+	" gray
+	highlight! CmpItemKindText guibg=NONE guifg=#F8F8F2
+	" functions
+	" green
+	highlight! CmpItemKindMethod guibg=NONE guifg=#50FA7B
+	highlight! link CmpItemKindFunction CmpItemKindMethod
+	highlight! link CmpItemKindConstructor CmpItemKindMethod
+	highlight! link CmpItemKindEnumMember CmpItemKindMethod
+	" variables
+	" purple
+	highlight! CmpItemKindField guibg=NONE guifg=#BD93F9
+	highlight! link CmpItemKindVariable CmpItemKindField
+	highlight! link CmpItemKindProperty CmpItemKindField
+	highlight! link CmpItemKindValue CmpItemKindField
+	" structures
+	" orange
+	highlight! CmpItemKindClass guibg=NONE guifg=#FFB86C
+	highlight! link CmpItemKindInterface CmpItemKindClass
+	highlight! link CmpItemKindModule CmpItemKindClass
+	highlight! link CmpItemKindEnum CmpItemKindClass
+	" other
+	highlight! CmpItemAbbrDeprecated guibg=NONE gui=strikethrough guifg=#44475A
+	highlight! CmpItemAbbrMatch guibg=NONE guifg=#8BE9FD
+	highlight! link CmpItemAbbrMatchFuzzy CmpItemAbbrMatch
 ]])
-

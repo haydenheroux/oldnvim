@@ -119,6 +119,7 @@ local config = {
 
     -- The configuration for jdtls is also placed where jdtls was installed. This will
     -- need to be updated depending on your environment
+    -- TODO Copy /usr/share/java/jdtls/config_linux/config.ini -> ~/.config/jdtls_linux/config.ini
     '-configuration', home .. "/.config/jdtls_linux",
 
     -- Use the workspace_folder defined above to store data for this project
