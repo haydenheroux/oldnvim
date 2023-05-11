@@ -58,6 +58,9 @@ return require('packer').startup(function(use)
 	}
 
 	use {
-		'nvim-tree/nvim-tree.lua'
+		'nvim-tree/nvim-tree.lua',
+		config = [[require('config.nvimtree')]]
 	}
+
+	use 'mfussenegger/nvim-jdtls'
 end)

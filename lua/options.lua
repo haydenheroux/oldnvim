@@ -27,4 +27,5 @@ vim.o.termguicolors = true
 
 local opts = { noremap = true, silent = true }
 local keymap = vim.api.nvim_set_keymap
+keymap("n", "<C-t>", ":NvimTreeFocus<CR>", opts)
 keymap("n", "<F5>", ":silent !compile %<CR>", opts)

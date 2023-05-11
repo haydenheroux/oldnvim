@@ -1,19 +1,15 @@
--- TODO: Use Dracula colors for nvim-tree
+local function on_attach(bufnr)
+	local api = require('nvim-tree.api')
+
+	local function opts(desc)
+		return {desc = 'nvim-tree: ' .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true}
+	end
+
+	vim.keymap.set('n', '<CR>', api.node.open.edit, opts('Open'))
+	vim.keymap.set('n', 'q', api.tree.close, opts('Close'))
+
+end
 
 require('nvim-tree').setup({
-	sort_by = 'case_sensitive',
-	view = {
-		adaptive_size = true,
-		mappings = {
-			list = {
-				{ key = 'u', action = 'dir_up' },
-			},
-		},
-	},
-	renderer = {
-		group_empty = true,
-	},
-	filters = {
-		dotfiles = true,
-	},
+	on_attach = on_attach
 })
