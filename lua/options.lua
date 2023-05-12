@@ -25,19 +25,29 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.o.termguicolors = true
 
-local opts = { noremap = true, silent = true }
-local keymap = vim.api.nvim_set_keymap
-keymap("n", "<C-t>", ":NvimTreeFocus<CR>", opts)
+-- ns = noremap, silent
+local ns = { noremap = true, silent = true }
 
-keymap("n", "<F5>", ":silent !compile %<CR>", opts)
+local keymap = vim.api.nvim_set_keymap
+keymap("n", "<F5>", ":silent !compile %<CR>", ns)
+
+keymap("n", "<C-h>", [[<C-w>h]], ns)
+keymap("n", "<C-j>", [[<C-w>j]], ns)
+keymap("n", "<C-k>", [[<C-w>k]], ns)
+keymap("n", "<C-l>", [[<C-w>l]], ns)
 
 vim.g.mapleader = " "
--- VSCode compatibility shortcuts
-keymap("n", "<leader>f", [[:lua require'telescope.builtin'.live_grep{}<CR>]], opts)
-keymap("n", "<leader>d", [[:lua require'telescope.builtin'.lsp_definitions{}<CR>]], opts)
-keymap("n", "<leader>i", [[:lua require'telescope.builtin'.lsp_implementations{}<CR>]], opts)
-keymap("n", "<leader>r", [[:lua require'telescope.builtin'.lsp_references{}<CR>]], opts)
-keymap("n", "<leader>.", [[:lua vim.lsp.buf.code_action()<CR>]], opts)
+keymap("n", "<leader>g", [[:lua require'telescope.builtin'.find_files{}<CR>]], ns)
+keymap("n", "<leader>f", [[:lua require'telescope.builtin'.live_grep{}<CR>]], ns)
+keymap("n", "<leader>d", [[:lua require'telescope.builtin'.lsp_definitions{}<CR>]], ns)
+keymap("n", "<leader>i", [[:lua require'telescope.builtin'.lsp_implementations{}<CR>]], ns)
+keymap("n", "<leader>r", [[:lua require'telescope.builtin'.lsp_references{}<CR>]], ns)
+keymap("n", "<leader>.", [[:lua vim.lsp.buf.code_action()<CR>]], ns)
+keymap("n", "<leader>rr", [[:lua vim.lsp.buf.rename()<CR>]], ns)
+keymap("n", "<leader> ", [[:Telescope<CR>]], ns)
+keymap("n", "<leader>t", [[:NvimTreeFocus<CR>]], ns)
+keymap("n", "<leader>j", [[:bnext<CR>]], ns)
+keymap("n", "<leader>k", [[:bprev<CR>]], ns)
 
 -- TODO Jank
 require('telescope').load_extension("ui-select")

@@ -10,7 +10,7 @@ return require('packer').startup(function(use)
 
 	use {
 		'nvim-lualine/lualine.nvim',
-		requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+		requires = { 'nvim-tree/nvim-web-devicons', opt = true },
 		config = [[require('config.lualine')]]
 	}
 
@@ -58,4 +58,6 @@ return require('packer').startup(function(use)
 	use 'mfussenegger/nvim-jdtls'
 
 	use {'nvim-telescope/telescope-ui-select.nvim' }
+
+	use {'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons', config = [[require('config.bufferline')]]}
 end)

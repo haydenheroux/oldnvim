@@ -10,6 +10,29 @@ local function on_attach(bufnr)
 
 end
 
-require('nvim-tree').setup({
+local api = require("nvim-tree.api")
+local Event = api.events.Event
+
+api.events.subscribe(Event.TreeOpen, function()
+	-- TODO Dynamically get background highlight from color scheme
+	vim.api.nvim_set_hl(0, "NvimTreeNormal", {bg = "#282a36"})
+end)
+
+require('nvim-tree').setup{
+	renderer = {
+		icons = {
+			glyphs = {
+				git = {
+					unstaged = "",
+					staged = "",
+					unmerged = "",
+					renamed = "",
+					untracked = "",
+					deleted = "",
+					ignored = "",
+				},
+			}
+		},
+	},
 	on_attach = on_attach
-})
+}
