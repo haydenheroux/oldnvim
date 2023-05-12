@@ -21,6 +21,8 @@ return require('packer').startup(function(use)
 
 	use {
 		'nvim-tree/nvim-tree.lua',
+		opt = true,
+		cmd = { 'NvimTreeFocus' },
 		config = [[require('config.nvimtree')]]
 	}
 
